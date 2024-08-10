@@ -74,8 +74,9 @@ const UserSignin = () => {
 
     if (formIsValid) {
       try {
+        const uri=`${process.env.REACT_APP_API_URL}/user/login` || 'http://16.171.159.43:3006/api/v1/user/login'
         const { data } = await axios.post(
-          `${process.env.REACT_APP_API_URL}/user/login`,
+          uri,
           formData
         );
 
