@@ -93,10 +93,8 @@ const CreateProduct = () => {
     formData.pictures.forEach((file) => data.append("pictures", file));
 
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/product/create`,
-        data
-      );
+      const uri=`${process.env.REACT_APP_API_URL}/product/create` || 'http://16.171.159.43:3006/api/v1/product/create'
+      const res = await axios.post(uri,data);
       console.log("res", res);
       if (res?.data?.status === 201) {
         toast.success("products Added");
